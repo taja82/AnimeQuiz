@@ -15,7 +15,9 @@ router.get("/", async function (req, res) {
 
 router.post("/", async function (req, res) {
     try {
-        const CountryResult = Country.updateOne({country:req.body.country}, req.body, {upsert:true});
+        console.log(req.body);
+        const CountryResult = Country.updateOne({country:req.body.country}, req.body, {upsert:true}).exec();
+        res.json({ response: {resultCode: 1, message: "성공"}});
 
     } catch (error) {
         if(error && error.code == 11000) {

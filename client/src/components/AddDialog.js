@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core'
 
 function AddDialog(props) {
   const [state, setState] = useState({
-    submitFromOutside : false
+    submitFromOutside: false
   });
 
   const create = useRef();
@@ -15,7 +15,7 @@ function AddDialog(props) {
       submitFromOutside: true,
     })
   }
-  
+
   function AddSubmit(data) {
     setState(data);
     console.log(data);
@@ -43,6 +43,7 @@ function AddDialog(props) {
     console.log(create);
   }
 
+
   return (
     <Dialog open={props.open} onClose={props.handleClose} aria-labelledby="form-dialog-title">
       <DialogTitle id="form-dialog-title">{props.titlemessage}</DialogTitle>
@@ -50,7 +51,7 @@ function AddDialog(props) {
         <DialogContentText>
           {props.contentmessage}
         </DialogContentText>
-        <CountryCreate data={props.data} submitFromOutside={state.submitFromOutside} onSubmit={AddSubmit}></CountryCreate>
+        <CountryCreate data={props.data} submitFromOutside={state.submitFromOutside} onSubmit={AddSubmit} open={(close) => { props.open(close) }}></CountryCreate>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
