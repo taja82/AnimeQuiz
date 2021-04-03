@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import List from "./List";
 import View from "./View";
-import Create from "./Create_fuc";
+import Create from "./Create";
 import Edit from "./Edit";
 
 function Anime({ match }) {

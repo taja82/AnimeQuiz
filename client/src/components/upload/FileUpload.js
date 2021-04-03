@@ -83,6 +83,7 @@ function FileUpload(props) {
         },
         cover: {
             width: 151,
+            height: 100
         },
     }));
 
