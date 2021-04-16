@@ -106,7 +106,7 @@ function Create(props) {
       }
     });
   }, [])
-
+  console.log(state);
   function submit() {
     fetch("/anime", {
       method: "GET",
@@ -122,7 +122,7 @@ function Create(props) {
           result: response.result
         });
       }
-      console.log(state.countries);
+      console.log(countries);
     });
   }
 
@@ -158,7 +158,6 @@ function Create(props) {
     } else {
       return <div></div>
     }
-
   }
   //{ code: '', label: "새로 추가하기" },
 
@@ -266,6 +265,7 @@ function Create(props) {
           }}
           filterOptions={(options, params) => {
             const filtered = filter(options, params);
+            console.log(filtered);
 
             if (params.inputValue !== '') {
               filtered.push({

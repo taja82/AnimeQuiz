@@ -8,8 +8,6 @@ function AddDialog(props) {
     submitFromOutside: false
   });
 
-  const create = useRef();
-
   function submitCustomForm() {
     setState({
       submitFromOutside: true,
@@ -40,7 +38,10 @@ function AddDialog(props) {
       }
     });*/
     //create.getWrappedInstance().submit();
-    console.log(create);
+  }
+  console.log(props);
+  function openc(close) {
+    props.open(close);
   }
 
 
@@ -51,7 +52,7 @@ function AddDialog(props) {
         <DialogContentText>
           {props.contentmessage}
         </DialogContentText>
-        <CountryCreate data={props.data} submitFromOutside={state.submitFromOutside} onSubmit={AddSubmit} open={(close) => { props.open(close) }}></CountryCreate>
+        <CountryCreate data={props.data} submitFromOutside={state.submitFromOutside} onSubmit={AddSubmit} open={openc}></CountryCreate>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">
